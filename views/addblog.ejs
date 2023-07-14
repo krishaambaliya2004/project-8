@@ -1,0 +1,119 @@
+<%- include('header') %>
+
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Blog</h4>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/dashboard">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <form class="form-horizontal" method="post" action="/insertdata" enctype="multipart/form-data">
+                            <input type="hidden" value="<%= single.id %>" name="editid">
+                            <div class="card-body">
+                                <% if(message.success.length> 0){ %>
+                                    <div class="alert alert-success" role="alert">
+                                        <%= message.success %>
+                                    </div>
+                                    <% } %>
+                                    <% if(message.danger.length> 0){ %>
+                                        <div class="alert alert-danger" role="alert">
+                                            <%= message.danger %>
+                                        </div>
+                                    <% } %>
+                                        <h4 class="card-title">Blog Info</h4>
+                                        <div class="form-group row">
+                                            <label for="fname"
+                                                class="col-sm-3 text-right control-label col-form-label">Blog
+                                                title</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="name" class="form-control" id="fname"
+                                                    value="<%= single.name %>" placeholder="Title">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Discription</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="discription" class="form-control" id="lname"
+                                                    value="<%= single.discription %>"
+                                                    placeholder="Write here Discription">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname"
+                                                class="col-sm-3 text-right control-label col-form-label">Image
+                                                Upload</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" name="image" class="form-control" id="lname">
+                                                <% if(single){ %>
+                                                    <img src="<%= single.image %>" width="150">
+                                                    <% } %>
+                                            </div>
+                                        </div>
+                            </div>
+                            <div class="border-top">
+                                <div class="card-body">
+                                    <% if(single){ %>
+                                        <input type="submit" value="Edit" class="btn btn-primary"></input>
+                                        <% }else{ %>
+                                            <input type="submit" class="btn btn-primary"></input>
+                                            <% } %>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- editor -->
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <footer class="footer text-center">
+            All Rights Reserved by Matrix-admin. Designed and Developed by <a
+                href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+
+    <%- include('footer') %>
